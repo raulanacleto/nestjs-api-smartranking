@@ -77,3 +77,4 @@ Nest is [MIT licensed](LICENSE).
 
 criar um module: npx @nestjs/cli g module jogadores
 criar um controller: npx @nestjs/cli g controller jogadores
+criar um service: npx @nestjs/cli g service jogadores 
