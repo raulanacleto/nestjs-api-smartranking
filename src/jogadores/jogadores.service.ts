@@ -5,11 +5,23 @@ import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class JogadoresService {
+  async consultarTodosJogadores(): Promise<Jogador[]> {
+    return await this.jogadores;
+  }
+
   private jogadores: Jogador[] = [];
   private readonly logger = new Logger(JogadoresService.name);
 
-  async criarAtualizarJogador(CriarJogadorDto: CriarJogadorDto): Promise<void> {
-    this.criar(CriarJogadorDto);
+  async criarAtualizarJogador(criarJogadorDto: CriarJogadorDto): Promise<void> {
+    const { email } = criarJogadorDto;
+    const jogadorEncontrado = await this.jogadores.find(
+      (jogador) => jogador.email === email,
+    );
+    if (jogadorEncontrado) {
+      return this.atualizar(jogadorEncontrado, criarJogadorDto);
+    } else {
+      this.criar(criarJogadorDto);
+    }
   }
 
   private criar(criaJogadorDto: CriarJogadorDto): void {
@@ -25,5 +37,13 @@ export class JogadoresService {
     };
     this.logger.log(`criaJogadorDto: ${JSON.stringify(jogador)}`);
     this.jogadores.push(jogador);
+  }
+
+  private atualizar(
+    jogadorEncontrado: Jogador,
+    criarJogadorDto: CriarJogadorDto,
+  ): void {
+    const { nome } = criarJogadorDto;
+    jogadorEncontrado.nome = nome;
   }
 }
