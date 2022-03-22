@@ -9,9 +9,7 @@ const MONGOOSE_USER =
   imports: [
     MongooseModule.forRoot(MONGOOSE_USER, {
       useNewUrlParser: true,
-      useCreateIndex: true,
       useUnifiedTopology: true,
-      useFindAndModify: false,
     }),
     JogadoresModule,
   ],
