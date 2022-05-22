@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { JogadoresModule } from './jogadores/jogadores.module';
+import { CategoriasModule } from './categorias/categorias.module';
 
 const MONGOOSE_USER =
   'mongodb+srv://raul:ktoqNFiaYxVnKBC3@cluster0.k4w1w.mongodb.net/smartracking?retryWrites=true&w=majority';
@@ -12,6 +13,7 @@ const MONGOOSE_USER =
       useUnifiedTopology: true,
     }),
     JogadoresModule,
+    CategoriasModule,
   ],
   controllers: [],
   providers: [],
