@@ -4,7 +4,7 @@ import { JogadoresModule } from './jogadores/jogadores.module';
 import { CategoriasModule } from './categorias/categorias.module';
 
 const MONGOOSE_USER =
-  'mongodb+srv://raul:ktoqNFiaYxVnKBC3@cluster0.k4w1w.mongodb.net/smartracking?retryWrites=true&w=majority';
+  'mongodb+srv://raul:naoMeLembro1@cluster0.k4w1w.mongodb.net/smartracking?retryWrites=true&w=majority';
 
 @Module({
   imports: [
